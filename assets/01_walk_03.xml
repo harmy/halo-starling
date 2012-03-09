@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="01_walk_03.png">
+    <!-- Created with TexturePacker -->
+    <!-- http://texturepacker.com -->
+    <!-- $TexturePacker:SmartUpdate:bfc2d9fc63ccca94949ec4fc7ad92c35$ -->
+    <SubTexture name="00000" x="0" y="0" width="30" height="42" frameX="-23" frameY="-37" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00001" x="30" y="0" width="30" height="42" frameX="-23" frameY="-37" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00002" x="60" y="0" width="30" height="42" frameX="-23" frameY="-37" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00003" x="90" y="0" width="30" height="42" frameX="-23" frameY="-37" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00004" x="120" y="0" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00005" x="150" y="0" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00006" x="180" y="0" width="30" height="44" frameX="-23" frameY="-35" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00007" x="210" y="0" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00008" x="0" y="44" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00009" x="30" y="44" width="30" height="44" frameX="-23" frameY="-35" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00010" x="60" y="44" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00011" x="90" y="44" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00012" x="120" y="44" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00013" x="150" y="44" width="30" height="42" frameX="-24" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00014" x="180" y="44" width="32" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00015" x="212" y="44" width="32" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00016" x="0" y="88" width="32" height="44" frameX="-23" frameY="-35" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00017" x="32" y="88" width="32" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00018" x="64" y="88" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00019" x="94" y="88" width="30" height="44" frameX="-23" frameY="-35" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00020" x="124" y="88" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00021" x="154" y="88" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00022" x="184" y="88" width="30" height="44" frameX="-23" frameY="-35" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00023" x="214" y="88" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00024" x="0" y="132" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00025" x="30" y="132" width="30" height="44" frameX="-23" frameY="-35" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00026" x="60" y="132" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00027" x="90" y="132" width="30" height="44" frameX="-23" frameY="-35" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00028" x="120" y="132" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+    <SubTexture name="00029" x="150" y="132" width="30" height="42" frameX="-23" frameY="-36" frameWidth="80" frameHeight="80"/>
+</TextureAtlas>
