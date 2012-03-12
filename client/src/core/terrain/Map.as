@@ -32,24 +32,24 @@ package core.terrain
 		/**
 		 * 存放地图的路径
 		 */
-		private var m_mapPath:String;
+		private var mMapPath:String;
 		
-		private var m_layers:Vector.<Layer> = new Vector.<Layer>();
-		private var m_layerDic:Dictionary = new Dictionary;	// Layer
+		private var mLayers:Vector.<Layer> = new Vector.<Layer>();
+		private var mLayerDic:Dictionary = new Dictionary;	// Layer
 		
 		/**
 		 * 地图的跟节点
 		 */
 		//private var m_container:Sprite;
 		
-		private var m_camera:Camera;
+		private var mCamera:Camera;
 		
-		private var m_width:uint;
-		private var m_height:uint;
+		private var mWidth:uint;
+		private var mHeight:uint;
 		
 		public function Map(camera:Camera)
 		{
-			m_camera = camera;
+			mCamera = camera;
 		}
 		
 		/**
@@ -57,19 +57,19 @@ package core.terrain
 		 */
 		public function setMapPath(path:String):void
 		{
-			m_mapPath = path;
+			mMapPath = path;
 		}
 		
 		public function load(url:String):void
 		{
-			var mapUrl:String = m_mapPath + "/" + url;
+			var mapUrl:String = mMapPath + "/" + url;
 			ResMgr.loadByURLLoader(mapUrl, onComplete, CoreConst.PRIORITY_MAP);
 		}
 		
 		public function update(elapse:uint):void
 		{
-			for (var i:uint=0; i<m_layers.length; ++i) {
-				m_layers[i].update(elapse);
+			for (var i:uint=0; i<mLayers.length; ++i) {
+				mLayers[i].update(elapse);
 			}
 			
 		}
@@ -77,19 +77,20 @@ package core.terrain
 		public function addLayer(layer:Layer):void
 		{
 			this.addChild(layer);
-			m_layers.push(layer);
-			m_layerDic[layer.name] = layer;
+			mLayers.push(layer);
+			mLayerDic[layer.name] = layer;
 		}
 		
 		public function getLayer(name:String):Layer
 		{
-			return m_layerDic[name];
+			return mLayerDic[name];
 		}
 		
 		public function updateCamera(camera:Camera):void
 		{
-			this.x = -camera.x;
-			this.y = -camera.y;
+			for (var i:uint=0; i<mLayers.length; ++i) {
+				mLayers[i].updateCamera(camera);
+			}
 		}
 		
 		private function onComplete(event:LoaderQueueEvent):void
@@ -112,7 +113,7 @@ package core.terrain
 			// 创建排序层
 			var sortlayer:SortLayer = new SortLayer("sort",24,32);
 			addLayer(sortlayer);
-			m_camera.traceObject = sortlayer.m_localPlayer; 
+			mCamera.traceObject = sortlayer.m_localPlayer; 
 			
 			// 创建阻挡层
 			layer = new BlockLayer("block",24,32);

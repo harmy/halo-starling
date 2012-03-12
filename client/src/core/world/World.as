@@ -13,25 +13,38 @@ package core.world
 	public class World extends Sprite
 	{
 		/**
+		 * 游戏世界作为单例，方便调用
+		 */
+		static public var sInstance:World = new World;
+		
+		/**
 		 * 游戏当前摄像机
 		 */
-		protected var m_camera:Camera;
+		protected var mCamera:Camera;
 		
 		/**
 		 * 游戏当前地图
 		 */
-		protected var m_map:Map;
+		protected var mMap:Map;
 		
-		private var m_running:Boolean = false;
-		private var m_lastTick:uint = 0;
+		private var mRunning:Boolean = false;
+		private var mLastTick:uint = 0;
+		
+		/**
+		 * 获得游戏世界的实例
+		 */
+		static public function getInstance():World
+		{
+			return sInstance;
+		}
 
 		public function World()
 		{
-			m_camera = new Camera;
-			m_map = new Map(m_camera);
+			mCamera = new Camera;
+			mMap = new Map(mCamera);
 			
 			// 加入地图层
-			addChild(m_map);
+			addChild(mMap);
 			
 			removeEventListener(Event.ENTER_FRAME,onUpdateFrame);
 			addEventListener(Event.ENTER_FRAME,onUpdateFrame);
@@ -39,17 +52,17 @@ package core.world
 		
 		public function set camera(camera:Camera):void
 		{
-			m_camera = camera;
+			mCamera = camera;
 		}
 		
 		public function get camera():Camera
 		{
-			return m_camera;
+			return mCamera;
 		}
 		
 		public function get map():Map	
 		{
-			return m_map;
+			return mMap;
 		}
 		
 		/**
@@ -57,7 +70,7 @@ package core.world
 		 */
 		public function screen2World(screenX:int, screenY:int):Point
 		{
-			return m_camera.screen2World(screenX, screenY);
+			return mCamera.screen2World(screenX, screenY);
 		}
 		
 		/**
@@ -65,7 +78,7 @@ package core.world
 		 */
 		public function world2Screen(worldX:uint, worldY:uint):Point
 		{
-			return m_camera.world2Screen(worldX, worldY);
+			return mCamera.world2Screen(worldX, worldY);
 		}
 		
 		/**
@@ -73,25 +86,25 @@ package core.world
 		 */
 		public function start():void
 		{
-			m_lastTick = getTimer();
-			m_running = true;
+			mLastTick = getTimer();
+			mRunning = true;
 		}
 		
 		public function stop():void
 		{
-			m_running = false;
+			mRunning = false;
 		}
 		
 		private function onUpdateFrame(evt:Event):void
 		{
-			if (!m_running) return;
+			if (!mRunning) return;
 			
 			var curTick:uint = getTimer();
-			var elapse:uint = curTick - m_lastTick;
+			var elapse:uint = curTick - mLastTick;
 			
 			update(elapse);
 			
-			m_lastTick = getTimer();
+			mLastTick = getTimer();
 		}
 		
 		/**
@@ -101,13 +114,13 @@ package core.world
 		protected function update(elapse:uint):void
 		{
 			// 优先更新相机
-			m_camera.update(elapse);
+			mCamera.update(elapse);
 			
 			// 更新地图的相机位置
-			m_map.updateCamera(m_camera);
+			mMap.updateCamera(mCamera);
 			
 			// 更新地图逻辑
-			m_map.update(elapse);
+			mMap.update(elapse);
 		}
 
 		

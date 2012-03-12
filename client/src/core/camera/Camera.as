@@ -16,21 +16,21 @@ package core.camera
 		static public const SHAKE_Y:uint = 2;		// Y方向震动
 		static public const SHAKE_XY:uint = 3;	// XY方向震动
 		
-		protected var m_pt:Point = new Point;
-		protected var m_veiwRect:Rectangle;	// 窗口大小(像素)
-		protected var m_traceRect:Rectangle;	// 地图大小(像素)
-		protected var m_traceObject:DisplayObject;
+		protected var mPt:Point = new Point;
+		protected var mViewRect:Rectangle;		// 窗口大小(像素)
+		protected var mTraceRect:Rectangle;	// 地图大小(像素)
+		protected var mTraceObject:DisplayObject;
 		
 		
-		protected var m_shakeLastTick:uint;
-		protected var m_shakeStartTick:uint;
-		protected var m_shakeCurSpan:Number;
-		protected var m_shakeOffset:Point = new Point;
+		protected var mShakeLastTick:uint;	
+		protected var mShakeStartTick:uint;
+		protected var mShakeCurSpan:Number;
+		protected var mShakeOffset:Point = new Point;
 		
-		protected var m_shakeDir:uint;			// 震动方向(SHAKE_X,SHAKE_Y,SHAKE_XY)
-		protected var m_shakeSpan:Number;		// 震动幅度(像素)
-		protected var m_shakeFrequency:Number;	// 震动频率(毫秒)
-		protected var m_shakeTime:uint;		// 持续时间(毫秒)
+		protected var mShakeDir:uint;			// 震动方向(SHAKE_X,SHAKE_Y,SHAKE_XY)
+		protected var mShakeSpan:Number;		// 震动幅度(像素)
+		protected var mShakeFrequency:Number;	// 震动频率(毫秒)
+		protected var mShakeTime:uint;		// 持续时间(毫秒)
 		
 		public function Camera()
 		{
@@ -44,66 +44,79 @@ package core.camera
 		 */
 		public function shake(dir:uint, span:uint, time:uint, frequency:uint=100):void
 		{
-			m_shakeOffset.x = m_shakeOffset.y = 0;
-			m_shakeDir = dir;
-			m_shakeSpan = span;
-			m_shakeTime = time;
-			m_shakeFrequency = frequency;
+			mShakeOffset.x = mShakeOffset.y = 0;
+			mShakeDir = dir;
+			mShakeSpan = span;
+			mShakeTime = time;
+			mShakeFrequency = frequency;
 			
-			m_shakeCurSpan = span;
-			m_shakeStartTick = getTimer();
-			m_shakeLastTick = getTimer();
-			//m_shakeOffset.y = span;
+			mShakeCurSpan = span;
+			mShakeStartTick = getTimer();
+			mShakeLastTick = getTimer();
 		}
 		
 		public function get traceObject():DisplayObject
 		{
-			return m_traceObject;
+			return mTraceObject;
 		}
 		
 		public function set traceObject(value:DisplayObject):void
 		{
-			m_traceObject = value;
+			mTraceObject = value;
+		}
+		
+		/**
+		 * 在世界坐标系内的可视区域
+		 */
+		private var mViewRectInWorld:Rectangle = new Rectangle;
+		public function get viewRectInWorld():Rectangle
+		{
+			mViewRectInWorld.x = mPt.x;
+			mViewRectInWorld.y = mPt.y;
+			mViewRectInWorld.width = mViewRect.width;
+			mViewRectInWorld.height = mViewRect.height;
+			//trace("viewRectInWorld: " + mViewRectInWorld.left + "," + mViewRectInWorld.top + "," + mViewRectInWorld.right + "," + mViewRectInWorld.bottom);
+			return mViewRectInWorld;
 		}
 		
 		public function get viewRect():Rectangle
 		{
-			return m_veiwRect;
+			return mViewRect;
 		}
 		
 		public function set viewRect(rect:Rectangle):void
 		{
-			m_veiwRect = rect;
+			mViewRect = rect;
 		}
 		
 		public function get traceRect():Rectangle
 		{
-			return m_traceRect;
+			return mTraceRect;
 		}
 		
 		public function set traceRect(rect:Rectangle):void
 		{
-			m_traceRect = rect;
+			mTraceRect = rect;
 		}
 		
 		public function get x():Number
 		{
-			return m_pt.x;
+			return mPt.x;
 		}
 		
 		public function set x(value:Number):void
 		{
-			m_pt.x = value;
+			mPt.x = value;
 		}
 		
 		public function get y():Number
 		{
-			return m_pt.y;
+			return mPt.y;
 		}
 		
 		public function set y(value:Number):void
 		{
-			m_pt.y = value;
+			mPt.y = value;
 		}
 		
 		
@@ -133,79 +146,79 @@ package core.camera
 		{
 			// 处理震屏
 			var curTick:uint = getTimer();
-			if (curTick - m_shakeLastTick > m_shakeFrequency) {
-				m_shakeLastTick = curTick;
+			if (curTick - mShakeLastTick > mShakeFrequency) {
+				mShakeLastTick = curTick;
 				
-				if (curTick - m_shakeStartTick < m_shakeTime) {
+				if (curTick - mShakeStartTick < mShakeTime) {
 					// 根据时间，计算出当前的振幅
-					var percent:Number = 1 - (curTick - m_shakeStartTick) / m_shakeTime;
+					var percent:Number = 1 - (curTick - mShakeStartTick) / mShakeTime;
 					//trace("percent: " + percent);
-					m_shakeCurSpan = m_shakeSpan * percent;
+					mShakeCurSpan = mShakeSpan * percent;
 					//trace("m_shakeCurSpan: " + m_shakeCurSpan);
 					
-					if (m_shakeDir == SHAKE_X) {
+					if (mShakeDir == SHAKE_X) {
 						// 更新X轴振幅
-						if (m_shakeOffset.x >= 0) {
-							m_shakeOffset.x = uint(m_shakeCurSpan);
+						if (mShakeOffset.x >= 0) {
+							mShakeOffset.x = uint(mShakeCurSpan);
 						} else {
-							m_shakeOffset.x = -uint(m_shakeCurSpan);
+							mShakeOffset.x = -uint(mShakeCurSpan);
 						}
 						// 震动
-						m_shakeOffset.x = -m_shakeOffset.x;
-						m_shakeOffset.y = 0;
-					} else if (m_shakeDir == SHAKE_Y) {
+						mShakeOffset.x = -mShakeOffset.x;
+						mShakeOffset.y = 0;
+					} else if (mShakeDir == SHAKE_Y) {
 						// 更新Y轴振幅
-						if (m_shakeOffset.y >= 0) {
-							m_shakeOffset.y = uint(m_shakeCurSpan);
+						if (mShakeOffset.y >= 0) {
+							mShakeOffset.y = uint(mShakeCurSpan);
 						} else {
-							m_shakeOffset.y = -uint(m_shakeCurSpan);
+							mShakeOffset.y = -uint(mShakeCurSpan);
 						}
 						// 震动
-						m_shakeOffset.x = 0;
-						m_shakeOffset.y = -m_shakeOffset.y;
+						mShakeOffset.x = 0;
+						mShakeOffset.y = -mShakeOffset.y;
 						//trace("shakeOffsetY: " + m_shakeOffset.y);
-					} if (m_shakeDir == SHAKE_XY) {
+					} if (mShakeDir == SHAKE_XY) {
 						// 更新X轴振幅
-						if (m_shakeOffset.x >= 0) {
-							m_shakeOffset.x = uint(m_shakeCurSpan);
+						if (mShakeOffset.x >= 0) {
+							mShakeOffset.x = uint(mShakeCurSpan);
 						} else {
-							m_shakeOffset.x = -uint(m_shakeCurSpan);
+							mShakeOffset.x = -uint(mShakeCurSpan);
 						}
 						// 震动
-						m_shakeOffset.x = -m_shakeOffset.x;
+						mShakeOffset.x = -mShakeOffset.x;
 						
 						// 更新Y轴振幅
-						if (m_shakeOffset.y >= 0) {
-							m_shakeOffset.y = uint(m_shakeCurSpan);
+						if (mShakeOffset.y >= 0) {
+							mShakeOffset.y = uint(mShakeCurSpan);
 						} else {
-							m_shakeOffset.y = -uint(m_shakeCurSpan);
+							mShakeOffset.y = -uint(mShakeCurSpan);
 						}
 						// 震动
-						m_shakeOffset.y = -m_shakeOffset.y;
+						mShakeOffset.y = -mShakeOffset.y;
 					}
 				} else {
 					// 震动结束
-					m_shakeOffset.x = m_shakeOffset.y = 0;
+					mShakeOffset.x = mShakeOffset.y = 0;
 				}
 			}
 		}
 		
 		public function update(elapse:uint):void
 		{
-			if (m_traceObject != null) {
+			if (mTraceObject != null) {
 				// 时刻跟踪的摄像机
-				x = m_traceObject.x;
-				y = m_traceObject.y;
+				x = mTraceObject.x;
+				y = mTraceObject.y;
 			}
 			
-			if (m_traceRect != null) {
+			if (mTraceRect != null) {
 				// 限制在地图之内
-				x -= m_veiwRect.width>>1;
-				y -= m_veiwRect.height>>1;
+				x -= mViewRect.width>>1;
+				y -= mViewRect.height>>1;
 				if (x < 0) x = 0;
 				if (y < 0) y = 0;
-				var sizeX:uint = m_traceRect.width - m_veiwRect.width;
-				var sizeY:uint = m_traceRect.height - m_veiwRect.height;
+				var sizeX:uint = mTraceRect.width - mViewRect.width;
+				var sizeY:uint = mTraceRect.height - mViewRect.height;
 				if (x > sizeX) x = sizeX;
 				if (y > sizeY) y = sizeY;
 			}
@@ -214,9 +227,13 @@ package core.camera
 			updateShake();
 			
 			// 计算震动效果的偏移
-			x = x + m_shakeOffset.x;
-			y = y + m_shakeOffset.y;
+			x = x + mShakeOffset.x;
+			y = y + mShakeOffset.y;
+			
+			
+			var e:Rectangle = viewRectInWorld;
 		}
+		
 		
 	}
 }

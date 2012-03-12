@@ -3,6 +3,8 @@ package core.terrain.layers
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.MovieClip;
+	import starling.extensions.ParticleDesignerPS;
+	import starling.extensions.ParticleSystem;
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 
@@ -41,6 +43,13 @@ package core.terrain.layers
 		[Embed(source='../assets/s_101_1.png')]
 		private static const AtlasTexture101_1:Class;
 		
+		// 粒子系统测试
+		[Embed(source="../assets/particle/Particle.pex", mimeType="application/octet-stream")]
+		private var _particleConfig:Class;
+		
+		[Embed(source="../assets/particle/ParticleTexture.png")]
+		private var _particlePng:Class;
+		
 		private var _mcs:Vector.<MovieClip> = new Vector.<MovieClip>();
 		
 		private var _atlasxmls:Vector.<Class> = new <Class>[AtlasXML0_0, AtlasXML0_1, AtlasXML1_0, AtlasXML1_1, AtlasXML101_0, AtlasXML101_1];
@@ -48,6 +57,8 @@ package core.terrain.layers
 		private var _textures:Vector.<Vector.<Texture> > = new Vector.<Vector.<Texture> >();
 		
 		public var m_localPlayer:MovieClip;
+		
+		private var _particleSystem:ParticleSystem;
 		
 		
 		public function SortLayer(name:String, width:uint, height:uint)
@@ -71,7 +82,15 @@ package core.terrain.layers
 				createChar();
 			}
 			
-			
+			// 创建粒子
+			var psconfig:XML = new XML(new _particleConfig());
+			var psTexture:Texture = Texture.fromBitmap(new _particlePng());
+			_particleSystem = new ParticleDesignerPS(psconfig, psTexture);
+			addChild(_particleSystem);
+			_particleSystem.start();
+			_particleSystem.x = Math.random() * 1280;
+			_particleSystem.y = Math.random() * 700;
+			Starling.juggler.add(_particleSystem);
 		}
 		
 		public function createChar():MovieClip
@@ -93,16 +112,9 @@ package core.terrain.layers
 		
 		override public function update(elapse:uint):void
 		{
+			super.update(elapse);
+			
 			sortChildren(compare);
-		}
-		
-		private function compare(paraA:DisplayObject,paraB:DisplayObject):int
-		{
-			var resultA:int = paraA.y
-			var resultB:int = paraB.y;
-			if(resultA > resultB) return 1;
-			if(resultA < resultB) return -1;
-			return 0;
 		}
 		
 	}

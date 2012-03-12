@@ -14,7 +14,8 @@ package core.terrain.layers
 	 */
 	public class GroundLayer extends Layer
 	{
-		[Embed(source='../assets/maps/520.jpg')]
+		//[Embed(source='../assets/maps/520.jpg')]
+		[Embed(source='../assets/maps/wangcheng.jpg')]
 		private static const mapTex:Class;
 		
 		static public const GROUND_TILE_WIDTH:uint = 512;
@@ -47,5 +48,17 @@ package core.terrain.layers
 			flatten();
 			
 		}
+		
+		override public function clip():void
+		{
+			//this.removeChildren();
+			//			var child:DisplayObject;
+			//			for (var i:uint=0; i<this.numChildren; ++i) {
+			//				child = this.getChildAt(i);
+			//				trace(child.width);
+			//				child.visible = false;
+			//			}
+		}
+		
 	}
 }

@@ -15,7 +15,7 @@ package core.resmgr
 	 */
 	public class ResMgr
 	{
-		static private var m_loaderQueue:LoaderQueue;
+		static private var mLoaderQueue:LoaderQueue;
 		static private var loaderInspector:LoaderInspector;
 		
 		public function ResMgr()
@@ -26,13 +26,13 @@ package core.resmgr
 		{
 			//实例化LoaderInspector，并添加到舞台
 			loaderInspector = new LoaderInspector();
-			loaderInspector.loaderQueue = m_loaderQueue;
+			loaderInspector.loaderQueue = mLoaderQueue;
 			stage.addChild(loaderInspector);
 		}
 		
 		static public function init(threadLimit:uint = 2, delay:int = 100, jumpQueueIfCached:Boolean = true):void
 		{
-			m_loaderQueue = new LoaderQueue(threadLimit, delay, jumpQueueIfCached);
+			mLoaderQueue = new LoaderQueue(threadLimit, delay, jumpQueueIfCached);
 		}
 		
 		/**
@@ -42,14 +42,14 @@ package core.resmgr
 		 */
 		static public function loadByURLLoader(url:String, completeCB:Function = null, priority:uint = 10, loaderContext:LoaderContext=null):void
 		{
-			if (m_loaderQueue == null) {
+			if (mLoaderQueue == null) {
 				init();
 			}
 			
 			//使用URLLoader
 			var loaderItem:URLLoaderAdapter = new URLLoaderAdapter(priority, new URLRequest(url));
 			loaderItem.addEventListener(LoaderQueueEvent.TASK_COMPLETED, completeCB);
-			m_loaderQueue.addItem(loaderItem);
+			mLoaderQueue.addItem(loaderItem);
 		}
 		
 		/**
@@ -59,14 +59,14 @@ package core.resmgr
 		 */
 		static public function loadByLoader(url:String, completeCB:Function = null, priority:uint = 10, loaderContext:LoaderContext=null):void
 		{
-			if (m_loaderQueue == null) {
+			if (mLoaderQueue == null) {
 				init();
 			}
 			
 			//使用Loader
 			var loaderItem:LoaderAdapter = new LoaderAdapter(priority, new URLRequest(url));
 			loaderItem.addEventListener(LoaderQueueEvent.TASK_COMPLETED, completeCB);
-			m_loaderQueue.addItem(loaderItem);
+			mLoaderQueue.addItem(loaderItem);
 		}
 		
 	}

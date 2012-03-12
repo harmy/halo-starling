@@ -98,14 +98,15 @@ package game {
 			
 			var starl:Starling = Starling.current;
 			camera.viewRect = new Rectangle(0, 0, starl.stage.stageWidth, starl.stage.stageHeight);
-			camera.traceRect = new Rectangle(0, 0, 1536, 1152);
+			//camera.traceRect = new Rectangle(0, 0, 1536, 1152);
+			camera.traceRect = new Rectangle(0, 0, 8064, 4480);
 			
 			Starling.current.stage.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
 		}
 		
 		public function onKeyDown(evt:KeyboardEvent):void
 		{
-			var STEP:Number = 5;
+			var STEP:Number = 20;
 			if (evt.keyCode == Keyboard.LEFT) {
 				camera.traceObject.x -= STEP;
 			} else if (evt.keyCode == Keyboard.RIGHT) {

@@ -25,8 +25,8 @@ package core.cursor
 		static public const TOP_CENTER:uint = 2;	// 上面的中心
 		
 		//static private var m_safeLoader:SWFSafeLoader = new SWFSafeLoader(); 
-		static private var m_domain:ApplicationDomain;
-		static private var m_isLoaded:Boolean = false;
+		static private var mDomain:ApplicationDomain;
+		static private var mIsLoaded:Boolean = false;
 		
 		public function NativeCursor()
 		{
@@ -76,7 +76,7 @@ package core.cursor
 		 */
 		static public function SetCursor(name:String):void
 		{
-			if (!m_isLoaded) return;
+			if (!mIsLoaded) return;
 			
 			Mouse.cursor = name;
 		}
@@ -218,12 +218,12 @@ package core.cursor
 		
 		static private function getClass(name:String):Class
 		{
-			if(m_domain == null)
+			if(mDomain == null)
 				return null;
 			
 			var assetClass:* = null;
 			try {
-				assetClass = m_domain.getDefinition(name);	
+				assetClass = mDomain.getDefinition(name);	
 			} catch(error:Error) {
 				trace(error.message);
 				return null;

@@ -4,8 +4,8 @@ package core.utils
 
 	public class Cookie
 	{
-		private var m_name:String;
-		private var m_sharedObj:SharedObject;
+		private var mName:String;
+		private var mSharedObj:SharedObject;
 		
 		public function Cookie(name:String = "System")
 		{
@@ -16,28 +16,28 @@ package core.utils
 		
 		public function get name():String
 		{
-			return m_name;
+			return mName;
 		}
 		
 		public function set name(value:String):void
 		{
-			m_name = value;
-			m_sharedObj = SharedObject.getLocal("zscs/" + m_name);
+			mName = value;
+			mSharedObj = SharedObject.getLocal("zscs/" + m_name);
 		}
 		
 		public function write(key:String, value:*, flush:Boolean = true):void
 		{
-			if (m_sharedObj.data.cookie == undefined) {
+			if (mSharedObj.data.cookie == undefined) {
 				var obj:Object = {};
 				obj[key] = value;
-				m_sharedObj.data.cookie = obj;
+				mSharedObj.data.cookie = obj;
 			} else {
-				m_sharedObj.data.cookie[key] = value;
+				mSharedObj.data.cookie[key] = value;
 			}
 			
 			try {
 				if (flush) {
-					m_sharedObj.flush();
+					mSharedObj.flush();
 				}	
 			} catch (err:Error) {
 				trace(err.message);				
@@ -46,15 +46,15 @@ package core.utils
 		
 		public function read(key:String):*
 		{
-			return isExist(key) ? m_sharedObj.data.cookie[key] : null;
+			return isExist(key) ? mSharedObj.data.cookie[key] : null;
 		}
 		
 		public function isExist(key:String):Boolean
 		{
-			if (m_sharedObj.data.cookie == undefined)
+			if (mSharedObj.data.cookie == undefined)
 				return false;
 			
-			if (m_sharedObj.data.cookie[key] == undefined)
+			if (mSharedObj.data.cookie[key] == undefined)
 				return false;
 			
 			return true;
@@ -65,13 +65,13 @@ package core.utils
 			if (!isExist(key))
 				return;
 			
-			delete m_sharedObj.data.cookie[key];
-			m_sharedObj.flush();
+			delete mSharedObj.data.cookie[key];
+			mSharedObj.flush();
 		}
 		
 		public function clear():void
 		{
-			m_sharedObj.clear();
+			mSharedObj.clear();
 		}
 		
 	}
