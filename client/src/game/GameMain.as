@@ -106,6 +106,7 @@ package game {
 		
 		private function onResizeEvent(evt:Event):void
 		{
+			trace("gamemain改变大小: " + Starling.current.stage.stageWidth + "," + Starling.current.stage.stageHeight);
 			onResize(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight);
 //			var starl:Starling = Starling.current;
 //			camera.viewRect = new Rectangle(0, 0, starl.stage.stageWidth, starl.stage.stageHeight);

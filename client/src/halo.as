@@ -45,6 +45,9 @@ package
 		private function onAddStage(evt:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddStage);
+			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
+			stage.addEventListener(Event.RESIZE, onResize);
+			stage.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		
 			ResMgr.init();
 			//ResMgr.addInspector(stage);
@@ -65,14 +68,12 @@ package
 			var miner:TheMiner = new TheMiner;
 			//addChild(miner);
 			
-			stage.addEventListener(Event.RESIZE, onResize);
-			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
-			this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
+
 		}
 		
 		private function onResize(evt:Event):void
 		{
-			trace("改变大小: " + stage.stageWidth + "," + stage.stageHeight);
+			trace("halo改变大小: " + stage.stageWidth + "," + stage.stageHeight);
 			mStarling.stage.stageWidth = stage.stageWidth;
 			mStarling.stage.stageHeight = stage.stageHeight;
 			mStarling.viewPort = new Rectangle(0, 0, stage.stageWidth, stage.stageHeight);
