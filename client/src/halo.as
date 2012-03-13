@@ -17,6 +17,7 @@ package
 	import flash.display.StageQuality;
 	import flash.display.StageScaleMode;
 	import flash.events.Event;
+	import flash.geom.Rectangle;
 	
 	import game.GameMain;
 	
@@ -24,7 +25,7 @@ package
 	
 	import starling.core.Starling;
 	
-	[SWF(frameRate="60")]
+	//[SWF(width="960", height="600", frameRate="60")]
 	public class halo extends Sprite
 	{
 		private var mStats:Stats = new Stats();
@@ -32,10 +33,19 @@ package
 		
 		public function halo()
 		{
+			stage.frameRate = 60;
 			stage.quality = StageQuality.LOW;
 			stage.scaleMode = StageScaleMode.NO_SCALE;
 			stage.align = StageAlign.TOP_LEFT;
 			
+			
+			addEventListener(Event.ADDED_TO_STAGE, onAddStage);
+		}
+		
+		private function onAddStage(evt:Event):void
+		{
+			removeEventListener(Event.ADDED_TO_STAGE, onAddStage);
+		
 			ResMgr.init();
 			//ResMgr.addInspector(stage);
 			
@@ -54,13 +64,25 @@ package
 			
 			var miner:TheMiner = new TheMiner;
 			//addChild(miner);
-
+			
+			stage.addEventListener(Event.RESIZE, onResize);
+			this.removeEventListener(Event.ENTER_FRAME, onEnterFrame);
 			this.addEventListener(Event.ENTER_FRAME, onEnterFrame);
 		}
 		
+		private function onResize(evt:Event):void
+		{
+			trace("改变大小: " + stage.stageWidth + "," + stage.stageHeight);
+			mStarling.stage.stageWidth = stage.stageWidth;
+			mStarling.stage.stageHeight = stage.stageHeight;
+			mStarling.viewPort = new Rectangle(0, 0, stage.stageWidth, stage.stageHeight);
+
+		}
 		
 		private function onEnterFrame(evt:Event):void
 		{
+			if (mStarling.context == null) return;
+			
 			mStats.driverInfo = mStarling.context.driverInfo;
 			mStats.update(0, 0);
 		}

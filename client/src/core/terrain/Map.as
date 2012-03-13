@@ -52,6 +52,16 @@ package core.terrain
 			mCamera = camera;
 		}
 		
+		public function get mapWidth():uint
+		{
+			return mWidth;
+		}
+		
+		public function get mapHeight():uint
+		{
+			return mHeight;
+		}
+		
 		/**
 		 * 设置地图文件的存放路径
 		 */
@@ -64,6 +74,10 @@ package core.terrain
 		{
 			var mapUrl:String = mMapPath + "/" + url;
 			ResMgr.loadByURLLoader(mapUrl, onComplete, CoreConst.PRIORITY_MAP);
+			
+			// 测试代码
+			mWidth = 8064;
+			mHeight = 4480;
 		}
 		
 		public function update(elapse:uint):void

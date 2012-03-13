@@ -4,6 +4,9 @@ package game {
 	import core.camera.Camera;
 	import core.world.World;
 	
+	import flash.display.StageAlign;
+	import flash.display.StageQuality;
+	import flash.display.StageScaleMode;
 	import flash.geom.Rectangle;
 	import flash.ui.Keyboard;
 	
@@ -60,7 +63,6 @@ package game {
 		public function GameMain() {
 			super();
 			
-			
 			/*
 			//flatten();
 			for(var idx:int = 0; idx < 6; idx++)
@@ -96,12 +98,19 @@ package game {
 			this.map.setMapPath("../assets/maps/");
 			this.map.load("map.tmx");
 			
-			var starl:Starling = Starling.current;
-			camera.viewRect = new Rectangle(0, 0, starl.stage.stageWidth, starl.stage.stageHeight);
-			//camera.traceRect = new Rectangle(0, 0, 1536, 1152);
-			camera.traceRect = new Rectangle(0, 0, 8064, 4480);
+			onResize(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight);
 			
-			Starling.current.stage.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			Starling.current.stage.addEventListener(Event.RESIZE, onResizeEvent);
+			Starling.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+		}
+		
+		private function onResizeEvent(evt:Event):void
+		{
+			onResize(Starling.current.stage.stageWidth, Starling.current.stage.stageHeight);
+//			var starl:Starling = Starling.current;
+//			camera.viewRect = new Rectangle(0, 0, starl.stage.stageWidth, starl.stage.stageHeight);
+//			//camera.traceRect = new Rectangle(0, 0, 1536, 1152);
+//			camera.traceRect = new Rectangle(0, 0, 8064, 4480);
 		}
 		
 		public function onKeyDown(evt:KeyboardEvent):void

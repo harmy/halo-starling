@@ -4,6 +4,7 @@ package core.world
 	import core.terrain.Map;
 	
 	import flash.geom.Point;
+	import flash.geom.Rectangle;
 	import flash.utils.getTimer;
 	
 	import starling.display.Sprite;
@@ -12,11 +13,6 @@ package core.world
 
 	public class World extends Sprite
 	{
-		/**
-		 * 游戏世界作为单例，方便调用
-		 */
-		static public var sInstance:World = new World;
-		
 		/**
 		 * 游戏当前摄像机
 		 */
@@ -30,14 +26,6 @@ package core.world
 		private var mRunning:Boolean = false;
 		private var mLastTick:uint = 0;
 		
-		/**
-		 * 获得游戏世界的实例
-		 */
-		static public function getInstance():World
-		{
-			return sInstance;
-		}
-
 		public function World()
 		{
 			mCamera = new Camera;
@@ -63,6 +51,12 @@ package core.world
 		public function get map():Map	
 		{
 			return mMap;
+		}
+		
+		public function onResize(width:uint, height:uint):void
+		{
+			camera.viewRect = new Rectangle(0, 0, width, height);
+			camera.traceRect = new Rectangle(0, 0, mMap.mapWidth, mMap.mapHeight);
 		}
 		
 		/**

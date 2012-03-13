@@ -34,6 +34,8 @@ package core.camera
 		
 		public function Camera()
 		{
+			mViewRect = new Rectangle(0, 0, 800, 600);
+			mTraceRect = new Rectangle(0, 0, 800, 600);
 		}
 		
 		/**
