@@ -1,5 +1,7 @@
 package core.terrain.layers
 {
+	import core.anim.HaloMovieClip;
+	
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.MovieClip;
@@ -56,7 +58,7 @@ package core.terrain.layers
 		private var _atlastextures:Vector.<Class> = new <Class>[AtlasTexture0_0, AtlasTexture0_1, AtlasTexture1_0, AtlasTexture1_1, AtlasTexture101_0, AtlasTexture101_1];
 		private var _textures:Vector.<Vector.<Texture> > = new Vector.<Vector.<Texture> >();
 		
-		public var m_localPlayer:MovieClip;
+		public var m_localPlayer:HaloMovieClip;
 		
 		private var _particleSystem:ParticleSystem;
 		
@@ -93,17 +95,16 @@ package core.terrain.layers
 			Starling.juggler.add(_particleSystem);
 		}
 		
-		public function createChar():MovieClip
+		public function createChar():HaloMovieClip
 		{
 			var random_idx:int = Math.random() * 6;
 			var textures:Vector.<Texture> = _textures[random_idx];
-			var mc:MovieClip = new MovieClip(textures, 8);
+			var mc:HaloMovieClip = new HaloMovieClip(textures, 8);
 			mc.smoothing = "none";
 			mc.currentFrame = 0;
-			mc.pivotX = 220;
-			mc.pivotY = 180;
 			mc.x = Math.random() * 1280;
 			mc.y = Math.random() * 700;
+			//mc.x = mc.y = 0;
 			addChild(mc);
 			Starling.juggler.add(mc);
 			
@@ -115,6 +116,11 @@ package core.terrain.layers
 			super.update(elapse);
 			
 			sortChildren(compare);
+			
+			trace("frameSize: " + m_localPlayer.frameWidth, m_localPlayer.frameHeight);
+			
+			_particleSystem.x = m_localPlayer.x;
+			_particleSystem.y = m_localPlayer.y;
 		}
 		
 	}
