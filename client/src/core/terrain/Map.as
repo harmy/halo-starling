@@ -6,6 +6,7 @@ package core.terrain
 	import core.terrain.layers.BlockLayer;
 	import core.terrain.layers.GroundLayer;
 	import core.terrain.layers.Layer;
+	import core.terrain.layers.MagicLayer;
 	import core.terrain.layers.ParallaxLayer;
 	import core.terrain.layers.SkyLayer;
 	import core.terrain.layers.SortLayer;
@@ -124,10 +125,16 @@ package core.terrain
 			layer = new GroundLayer("ground",24,32);
 			addLayer(layer);
 			
+			//创建人物前魔法层
+			addLayer(new MagicLayer("magic_before"), 0, 0);
+			
 			// 创建排序层
 			var sortlayer:SortLayer = new SortLayer("sort",24,32);
 			addLayer(sortlayer);
 			mCamera.traceObject = sortlayer.m_localPlayer; 
+			
+			//创建人物后魔法层
+			addLayer(new MagicLayer("magic_after"), 0, 0);
 			
 			// 创建阻挡层
 			layer = new BlockLayer("block",24,32);
