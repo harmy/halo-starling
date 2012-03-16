@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Charactor>	
+	<Layer ID="0" Name="body"	TexW="512" TexH="512"  Effect="0"/>
+	<Layer ID="1" Name="arm"	TexW="512" TexH="512"  Effect="0"/>
+</Charactor>
