@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:1f95364279bb5224c0497792432f1198$ -->
+<TextureAtlas imagePath="xiaohuoqiu.png">
+    <SubTexture name="1_施放/0_00000" x="2" y="2" width="136" height="144" frameX="-195" frameY="-135" frameWidth="512" frameHeight="512"/>
+    <SubTexture name="1_施放/0_00001" x="2" y="148" width="118" height="124" frameX="-204" frameY="-146" frameWidth="512" frameHeight="512"/>
+    <SubTexture name="1_施放/0_00002" x="140" y="2" width="92" height="98" frameX="-217" frameY="-161" frameWidth="512" frameHeight="512"/>
+    <SubTexture name="1_施放/0_00003" x="140" y="102" width="62" height="64" frameX="-231" frameY="-181" frameWidth="512" frameHeight="512"/>
+    <SubTexture name="2_飞行/0" x="140" y="102" width="62" height="64" frameX="-231" frameY="-181" frameWidth="512" frameHeight="512"/>
+</TextureAtlas>
