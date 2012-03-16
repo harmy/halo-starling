@@ -1,10 +1,13 @@
 package core.world
 {
 	import core.camera.Camera;
+	import core.object.Charactor;
 	import core.terrain.Map;
+	import core.terrain.layers.SortLayer;
 	
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
+	import flash.utils.Dictionary;
 	import flash.utils.getTimer;
 	
 	import starling.display.Sprite;
@@ -22,6 +25,11 @@ package core.world
 		 * 游戏当前地图
 		 */
 		protected var mMap:Map;
+		
+		/**
+		 * 存放角色
+		 */
+		protected var mCharDic:Dictionary = new Dictionary;	// character
 		
 		private var mRunning:Boolean = false;
 		private var mLastTick:uint = 0;
@@ -51,6 +59,26 @@ package core.world
 		public function get map():Map	
 		{
 			return mMap;
+		}
+		
+		public function addChar(id:uint, char:Charactor):void
+		{
+			if (mCharDic[id] != null) return;
+			
+			mCharDic[id] = char;
+			
+			var layer:SortLayer = mMap.getLayer("sort") as SortLayer;
+			layer.addChild(char);
+		}
+		
+		public function removeChar(id:uint):void
+		{
+			if (mCharDic[id] == null) return;
+			
+			var layer:SortLayer = mMap.getLayer("sort") as SortLayer;
+			layer.removeChild(mCharDic[id]);
+			
+			delete mCharDic[id];			
 		}
 		
 		public function onResize(width:uint, height:uint):void
@@ -115,6 +143,12 @@ package core.world
 			
 			// 更新地图逻辑
 			mMap.update(elapse);
+			
+			// 更新角色逻辑
+			for each (var char:Charactor in mCharDic) {
+				char.updateController();
+				char.update();
+			}
 		}
 
 		

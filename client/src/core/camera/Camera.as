@@ -121,6 +121,16 @@ package core.camera
 			mPt.y = value;
 		}
 		
+		public function get right():Number
+		{
+			return mPt.x + mViewRect.width;
+		}
+		
+		public function get bottom():Number
+		{
+			return mPt.y + mViewRect.height;
+		}
+		
 		
 		/**
 		 * 世界坐标转为屏幕坐标(像素)

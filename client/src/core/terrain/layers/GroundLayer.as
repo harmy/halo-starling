@@ -1,5 +1,7 @@
 package core.terrain.layers
 {
+	import core.camera.Camera;
+	
 	import flash.display.Bitmap;
 	import flash.display.BitmapData;
 	import flash.geom.Point;
@@ -49,7 +51,7 @@ package core.terrain.layers
 			
 		}
 		
-		override public function clip():void
+		override public function clip(camera:Camera):void
 		{
 			//this.removeChildren();
 			//			var child:DisplayObject;

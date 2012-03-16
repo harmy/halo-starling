@@ -78,6 +78,32 @@ package core.terrain
 			// 测试代码
 			mWidth = 8064;
 			mHeight = 4480;
+			
+			// --------- 创建测试用的图层 ----------
+			
+			var layer:Layer;
+			
+			// 创建悬空地表
+			layer = new ParallaxLayer("parallax",24,32);
+			addLayer(layer);
+			
+			// 创建地表
+			layer = new GroundLayer("ground",24,32);
+			addLayer(layer);
+			
+			// 创建排序层
+			layer = new SortLayer("sort",24,32);
+			addLayer(layer);
+			
+			// 创建阻挡层
+			layer = new BlockLayer("block",24,32);
+			addLayer(layer);
+			
+			// 创建天空层
+			layer = new SkyLayer("sky",24,32);
+			addLayer(layer);
+			
+			// ------------------------------------
 		}
 		
 		public function update(elapse:uint):void
@@ -92,7 +118,7 @@ package core.terrain
 		{
 			this.addChild(layer);
 			mLayers.push(layer);
-			mLayerDic[layer.name] = layer;
+			mLayerDic[layer.layerName] = layer;
 		}
 		
 		public function getLayer(name:String):Layer
@@ -111,33 +137,6 @@ package core.terrain
 		{
 			// 根据地图文件，创建地图层次
 			// TODO
-			
-			// --------- 创建测试用的图层 ----------
-			
-			var layer:Layer;
-			
-			// 创建悬空地表
-			layer = new ParallaxLayer("parallax",24,32);
-			addLayer(layer);
-			
-			// 创建地表
-			layer = new GroundLayer("ground",24,32);
-			addLayer(layer);
-			
-			// 创建排序层
-			var sortlayer:SortLayer = new SortLayer("sort",24,32);
-			addLayer(sortlayer);
-			mCamera.traceObject = sortlayer.m_localPlayer; 
-			
-			// 创建阻挡层
-			layer = new BlockLayer("block",24,32);
-			addLayer(layer);
-			
-			// 创建天空层
-			layer = new SkyLayer("sky",24,32);
-			addLayer(layer);
-			
-			// ------------------------------------
 		}
 	}
 }

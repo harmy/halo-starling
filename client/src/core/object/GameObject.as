@@ -59,7 +59,7 @@ package core.object
 			mTFName.x = -mTFName.width / 2 - (mTFName.text.length) / 2 * mTFName.fontSize;
 			mTFName.y = -107;
 			mTFName.color = 0xFFFFFF;
-			mTFName.filter = CoreConst.GLOW_FILTER1;
+			mTFName.filter = [CoreConst.GLOW_FILTER1];
 			mTFName.autoScale = false;
 			mTFName.kerning = false;
 
@@ -107,7 +107,7 @@ package core.object
 		 */
 		public function update():void
 		{
-			//trace("font: " + mTFName.width + "," + mTFName.height);
+
 		}
 		
 		

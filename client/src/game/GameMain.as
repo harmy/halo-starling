@@ -2,6 +2,7 @@ package game {
 	
 	//import starling.core.ObjectStats;
 	import core.camera.Camera;
+	import core.object.Charactor;
 	import core.world.World;
 	
 	import flash.display.StageAlign;
@@ -30,6 +31,23 @@ package game {
 			this.start();
 			this.map.setMapPath("../assets/maps/");
 			this.map.load("map.tmx");
+			
+			GameAssets.initGameRes();
+			
+			for (var i:uint=0; i<200 * 1; ++i) {
+				var char:Charactor = new Charactor(null);
+				char.charView = GameAssets.createChar();
+				char.x = Math.random() * 1280 * 2;
+				char.y = Math.random() * 700 * 2;
+				addChar(char.id, char);
+				Starling.juggler.add(char.charView);
+				
+				if (i == 0) {
+					char.charView.color = 0x00FF00;
+					camera.traceObject = char;
+				}
+			}
+			
 			
 			onResizeEvent(null);
 			
