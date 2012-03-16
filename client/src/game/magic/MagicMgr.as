@@ -11,6 +11,16 @@ package game.magic
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 	
+	/*
+	魔法配置说明 (暂时备注在这里)
+	1.魔法层: 人前 人后
+	2.释放位置: 自身 飞行 目标
+	3.结束判断: 播放完 持续一段时间 持续到收到指令 飞行到目标点 飞行出屏幕
+	4.声音
+	5.选项：是否跟随飞行 播放到最后一帧时保持 飞行速度 动画速度 offx offy 持续时间 放大倍数 blend
+	*/
+	
+	
 	public final class MagicMgr
 	{		
 		private static var _instance:MagicMgr;
@@ -67,4 +77,5 @@ package game.magic
 		}		
 	}
 }
+
 
