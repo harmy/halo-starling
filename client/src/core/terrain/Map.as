@@ -51,6 +51,7 @@ package core.terrain
 		public function Map(camera:Camera)
 		{
 			mCamera = camera;
+			initLayers();
 		}
 		
 		public function get mapWidth():uint
@@ -81,12 +82,16 @@ package core.terrain
 			mHeight = 4480;
 		}
 		
+		private function onComplete(event:LoaderQueueEvent):void
+		{
+			
+		}
+		
 		public function update(elapse:uint):void
 		{
 			for (var i:uint=0; i<mLayers.length; ++i) {
 				mLayers[i].update(elapse);
-			}
-			
+			}			
 		}
 		
 		public function addLayer(layer:Layer):void
@@ -108,7 +113,7 @@ package core.terrain
 			}
 		}
 		
-		private function onComplete(event:LoaderQueueEvent):void
+		private function initLayers():void
 		{
 			// 根据地图文件，创建地图层次
 			// TODO
@@ -126,7 +131,7 @@ package core.terrain
 			addLayer(layer);
 			
 			//创建人物前魔法层
-			addLayer(new MagicLayer("magic_before"), 0, 0);
+			addLayer(new MagicLayer("magic_before", 0, 0));
 			
 			// 创建排序层
 			var sortlayer:SortLayer = new SortLayer("sort",24,32);
@@ -134,7 +139,7 @@ package core.terrain
 			mCamera.traceObject = sortlayer.m_localPlayer; 
 			
 			//创建人物后魔法层
-			addLayer(new MagicLayer("magic_after"), 0, 0);
+			addLayer(new MagicLayer("magic_after", 0, 0));
 			
 			// 创建阻挡层
 			layer = new BlockLayer("block",24,32);

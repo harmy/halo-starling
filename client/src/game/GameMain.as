@@ -10,6 +10,8 @@ package game {
 	import flash.geom.Rectangle;
 	import flash.ui.Keyboard;
 	
+	import game.magic.MagicMgr;
+	
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.display.MovieClip;
@@ -22,7 +24,9 @@ package game {
 	/**
 	 * @author hiko
 	 */
-	public class GameMain extends World {
+	public class GameMain extends World
+	{
+		private static var _instance:World;
 		
 		public function GameMain() {
 			super();
@@ -35,6 +39,13 @@ package game {
 			
 			Starling.current.stage.addEventListener(Event.RESIZE, onResizeEvent);
 			Starling.current.stage.addEventListener(KeyboardEvent.KEY_DOWN, onKeyDown);
+			_instance = this;
+			MagicMgr.instance().test_magic();
+		}
+		
+		public static function instace():World
+		{
+			return _instance;			
 		}
 		
 		private function onResizeEvent(evt:Event):void

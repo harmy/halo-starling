@@ -36,7 +36,7 @@ package core.world
 			
 			removeEventListener(Event.ENTER_FRAME,onUpdateFrame);
 			addEventListener(Event.ENTER_FRAME,onUpdateFrame);
-		}
+		}			
 		
 		public function set camera(camera:Camera):void
 		{
