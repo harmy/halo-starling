@@ -1,0 +1,312 @@
+<Root>
+	<Texture>
+		<Layer ID="0" TexID="10" />
+		<Layer ID="1" TexID="10" />
+		<Layer ID="2" TexID="10" />
+		<Layer ID="3" TexID="10" />
+	</Texture>
+	<Animation Dir="0" >
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="0" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="0" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="0" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="0" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="1" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="1" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="1" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="1" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="2" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="2" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="2" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="2" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="2" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="2" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="2" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="2" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="3" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="3" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="3" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="3" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="3" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="3" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="3" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="3" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+	<Animation Dir="1" >
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="16" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="16" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="16" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="16" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="17" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="17" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="17" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="17" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="18" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="18" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="18" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="18" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="18" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="18" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="18" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="18" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="19" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="19" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="19" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="19" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="19" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="19" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="19" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="19" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+	<Animation Dir="2" >
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="32" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="32" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="32" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="32" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="33" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="33" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="33" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="33" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="34" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="34" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="34" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="34" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="34" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="34" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="34" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="34" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="35" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="35" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="35" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="35" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="35" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="35" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="35" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="35" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+	<Animation Dir="3" >
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="48" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="48" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="48" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="48" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="49" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="49" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="49" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="49" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="50" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="50" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="50" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="50" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="50" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="50" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="50" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="50" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="51" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="51" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="51" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="51" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="51" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="51" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="51" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="51" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+	<Animation Dir="4" >
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="64" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="64" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="64" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="64" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="65" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="65" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="65" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="65" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="66" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="66" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="66" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="66" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="0" Resource="66" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="66" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="66" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="66" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="67" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="67" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="67" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="67" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="67" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="67" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="67" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="67" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+	<Animation Dir="5" >
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="80" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="80" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="80" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="80" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="81" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="81" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="81" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="81" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="82" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="82" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="82" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="82" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="82" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="82" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="82" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="82" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="83" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="83" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="83" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="83" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="83" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="83" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="83" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="83" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+	<Animation Dir="6" >
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="96" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="96" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="96" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="96" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="97" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="97" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="97" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="97" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="98" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="98" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="98" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="98" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="98" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="98" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="98" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="98" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="99" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="99" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="99" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="99" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="99" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="99" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="99" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="99" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+	<Animation Dir="7" >
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="112" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="112" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="112" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="112" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="3" Resource="113" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="113" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="113" PosX="0" PosY="0"/>
+			<Part Layers="2" Resource="113" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="114" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="114" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="114" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="114" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="114" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="114" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="114" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="114" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="115" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="115" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="115" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="115" PosX="0" PosY="0"/>
+		</Frame>
+		<Frame DelayFrame="0">
+			<Part Layers="2" Resource="115" PosX="0" PosY="0"/>
+			<Part Layers="3" Resource="115" PosX="0" PosY="0"/>
+			<Part Layers="0" Resource="115" PosX="0" PosY="0"/>
+			<Part Layers="1" Resource="115" PosX="0" PosY="0"/>
+		</Frame>
+	</Animation>
+</Root>

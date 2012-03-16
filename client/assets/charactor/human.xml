@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Charactor>	
+	<Layer ID="0" Name="body" 		TexW="512" TexH="512"  Effect="0"/>
+	<Layer ID="1" Name="hair" 		TexW="512" TexH="512"  Effect="0"/>
+	<Layer ID="2" Name="pattern" 	TexW="512" TexH="512"  Effect="0"/>
+	<Layer ID="3" Name="weapon" 	TexW="512" TexH="512"  Effect="0"/>
+	<Layer ID="4" Name="horse" 		TexW="512" TexH="512"  Effect="0"/>
+</Charactor>
