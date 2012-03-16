@@ -16,6 +16,7 @@ package core.object
 	import starling.display.Image;
 	import starling.display.Sprite;
 	import starling.textures.Texture;
+	import halo.text.TextField;
 
 	/**
 	 * 游戏对象： 玩家、NPC、怪物、宠物、等等
@@ -45,7 +46,7 @@ package core.object
 		/**
 		 * 显示的名字
 		 */
-		protected var mTFName:HaloTextField = new HaloTextField(256, 32, "我的名字");
+		protected var mTFName:halo.text.TextField = new halo.text.TextField(256, 32, "我的名字");
 		
 		/**
 		 * 高度
@@ -59,7 +60,7 @@ package core.object
 			mTFName.x = -mTFName.width / 2 - (mTFName.text.length) / 2 * mTFName.fontSize;
 			mTFName.y = -107;
 			mTFName.color = 0xFFFFFF;
-			mTFName.filter = CoreConst.GLOW_FILTER1;
+			mTFName.filter = [CoreConst.GLOW_FILTER1];
 			mTFName.autoScale = false;
 			mTFName.kerning = false;
 
@@ -107,7 +108,7 @@ package core.object
 		 */
 		public function update():void
 		{
-			//trace("font: " + mTFName.width + "," + mTFName.height);
+
 		}
 		
 		

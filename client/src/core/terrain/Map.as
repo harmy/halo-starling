@@ -51,7 +51,7 @@ package core.terrain
 		public function Map(camera:Camera)
 		{
 			mCamera = camera;
-			initLayers();
+			initLayers();			
 		}
 		
 		public function get mapWidth():uint
@@ -72,52 +72,13 @@ package core.terrain
 			mMapPath = path;
 		}
 		
-		public function load(url:String):void
-		{
-			var mapUrl:String = mMapPath + "/" + url;
-			ResMgr.loadByURLLoader(mapUrl, onComplete, CoreConst.PRIORITY_MAP);
-			
-			// 测试代码
-			mWidth = 8064;
-			mHeight = 4480;
-		}
-		
-		private function onComplete(event:LoaderQueueEvent):void
+		private function cleanLayers():void
 		{
 			
-		}
-		
-		public function update(elapse:uint):void
-		{
-			for (var i:uint=0; i<mLayers.length; ++i) {
-				mLayers[i].update(elapse);
-			}			
-		}
-		
-		public function addLayer(layer:Layer):void
-		{
-			this.addChild(layer);
-			mLayers.push(layer);
-			mLayerDic[layer.name] = layer;
-		}
-		
-		public function getLayer(name:String):Layer
-		{
-			return mLayerDic[name];
-		}
-		
-		public function updateCamera(camera:Camera):void
-		{
-			for (var i:uint=0; i<mLayers.length; ++i) {
-				mLayers[i].updateCamera(camera);
-			}
 		}
 		
 		private function initLayers():void
 		{
-			// 根据地图文件，创建地图层次
-			// TODO
-			
 			// --------- 创建测试用的图层 ----------
 			
 			var layer:Layer;
@@ -134,9 +95,8 @@ package core.terrain
 			addLayer(new MagicLayer("magic_before", 0, 0));
 			
 			// 创建排序层
-			var sortlayer:SortLayer = new SortLayer("sort",24,32);
-			addLayer(sortlayer);
-			mCamera.traceObject = sortlayer.m_localPlayer; 
+			layer = new SortLayer("sort",24,32);
+			addLayer(layer);
 			
 			//创建人物后魔法层
 			addLayer(new MagicLayer("magic_after", 0, 0));
@@ -149,7 +109,48 @@ package core.terrain
 			layer = new SkyLayer("sky",24,32);
 			addLayer(layer);
 			
-			// ------------------------------------
+			// ------------------------------------			
+		}
+		
+		public function load(url:String):void
+		{
+			var mapUrl:String = mMapPath + "/" + url;
+			ResMgr.loadByURLLoader(mapUrl, onComplete, CoreConst.PRIORITY_MAP);
+			
+			// 测试代码
+			mWidth = 8064;
+			mHeight = 4480;			
+		}
+		
+		private function onComplete(event:LoaderQueueEvent):void
+		{
+			cleanLayers();//清理之前的层数据
+		}
+		
+		public function update(elapse:uint):void
+		{
+			for (var i:uint=0; i<mLayers.length; ++i) {
+				mLayers[i].update(elapse);
+			}			
+		}
+		
+		public function addLayer(layer:Layer):void
+		{
+			this.addChild(layer);
+			mLayers.push(layer);
+			mLayerDic[layer.layerName] = layer;
+		}
+		
+		public function getLayer(name:String):Layer
+		{
+			return mLayerDic[name];
+		}
+		
+		public function updateCamera(camera:Camera):void
+		{
+			for (var i:uint=0; i<mLayers.length; ++i) {
+				mLayers[i].updateCamera(camera);
+			}
 		}
 	}
 }

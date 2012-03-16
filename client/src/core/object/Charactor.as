@@ -1,6 +1,6 @@
 package core.object
 {
-	import core.anim.HaloMovieClip;
+	import halo.display.MovieClip;
 	import core.camera.Camera;
 	import core.data.CoreConst;
 	
@@ -14,7 +14,7 @@ package core.object
 		static private var count:uint = 1;
 		
 		protected var mLooks:CharLooks;
-		protected var mView:HaloMovieClip;
+		protected var mView:MovieClip;
 		
 		
 		public function Charactor(looks:CharLooks)
@@ -24,14 +24,14 @@ package core.object
 			mId = count++;
 		}
 		
-		public function set charView(value:HaloMovieClip):void
+		public function set charView(value:MovieClip):void
 		{
 			mView = value;
 			removeChild(value);
 			addChild(value);
 		}
 		
-		public function get charView():HaloMovieClip
+		public function get charView():MovieClip
 		{
 			return mView;
 		}

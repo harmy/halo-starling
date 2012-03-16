@@ -1,7 +1,6 @@
 package
 {
-	import core.anim.HaloMovieClip;
-	
+	import halo.display.MovieClip;	
 	import starling.extensions.ParticleDesignerPS;
 	import starling.extensions.ParticleSystem;
 	import starling.textures.Texture;
@@ -65,11 +64,11 @@ package
 			}
 		}
 		
-		static public function createChar():HaloMovieClip
+		static public function createChar():MovieClip
 		{
 			var random_idx:int = Math.random() * 6;
 			var textures:Vector.<Texture> = _textures[random_idx];
-			var mc:HaloMovieClip = new HaloMovieClip(textures, 8);
+			var mc:MovieClip = new MovieClip(textures, 8);
 			mc.smoothing = "none";
 			mc.currentFrame = 0;
 			//mc.x = Math.random() * 1280;
