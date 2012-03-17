@@ -7,7 +7,9 @@ package core.terrain.layers
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 	
-	import starling.display.Image;
+	import halo.display.Image;
+	
+	import starling.core.Starling;
 	import starling.display.Sprite;
 	import starling.textures.Texture;
 
@@ -39,15 +41,16 @@ package core.terrain.layers
 					rectSrc.height = GROUND_TILE_HEIGHT;
 					var ptDest:Point = new Point(0, 0);
 					tileBmp.copyPixels(mapBmp.bitmapData, rectSrc, ptDest, null, null, true);
-					var tex:Texture = Texture.fromBitmapData(tileBmp, false, false);
+					var tex:Texture = Texture.fromBitmapData(tileBmp);
 					var spr:Image = new Image(tex);
 					spr.x = x;
 					spr.y = y;
-					this.addChild(spr);
+					spr.blendMode = "black";
+					this.addChild(spr);					
 				}	
 			}
 			
-			flatten();
+			//flatten();
 			
 		}
 		

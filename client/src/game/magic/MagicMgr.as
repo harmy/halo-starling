@@ -1,9 +1,9 @@
 package game.magic
 {
-	import halo.display.MovieClip;
-	import halo.display.Image;
 	import core.terrain.layers.Layer;	
-	import game.GameMain;	
+	import game.GameMain;
+	import halo.display.Image;
+	import halo.display.MovieClip;	
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.extensions.ParticleDesignerPS;
@@ -11,16 +11,9 @@ package game.magic
 	import starling.textures.Texture;
 	import starling.textures.TextureAtlas;
 	
-	/*
-	魔法配置说明 (暂时备注在这里)
-	1.魔法层: 人前 人后
-	2.释放位置: 自身 飞行 目标
-	3.结束判断: 播放完 持续一段时间 持续到收到指令 飞行到目标点 飞行出屏幕
-	4.声音
-	5.选项：是否跟随飞行 播放到最后一帧时保持 飞行速度 动画速度 offx offy 持续时间 放大倍数 blend
-	*/
-	
-	
+	/**
+	 *魔法管理器，对外提供调用接口
+	 */	
 	public final class MagicMgr
 	{		
 		private static var _instance:MagicMgr;
@@ -51,6 +44,14 @@ package game.magic
 		public function init():void
 		{
 			test_magic();
+		}
+		
+		public function MagicMgr()
+		{
+			if(_instance != null)
+			{
+				throw new Error("this class is a singleton class");
+			}
 		}
 		
 		public function test_magic():void

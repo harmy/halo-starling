@@ -38,6 +38,7 @@ package game {
 			
 			GameAssets.initGameRes();
 			
+			
 			for (var i:uint=0; i<200 * 1; ++i) {
 				var char:Charactor = new Charactor(null);
 				char.charView = GameAssets.createChar();
@@ -51,6 +52,7 @@ package game {
 					camera.traceObject = char;
 				}
 			}
+			
 			
 			
 			onResizeEvent(null);

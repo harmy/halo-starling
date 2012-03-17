@@ -129,6 +129,9 @@ package halo.display
 			}else if(mode == "alpha"){
 				mBlendFactorSource = Context3DBlendFactor.ZERO;
 				mBlendFactorDestination = Context3DBlendFactor.SOURCE_ALPHA;
+			}else if(mode == "black") {
+				mBlendFactorSource = Context3DBlendFactor.DESTINATION_COLOR;
+				mBlendFactorDestination = Context3DBlendFactor.ONE_MINUS_SOURCE_ALPHA;
 			}else if(mode == "multiply"){
 				mBlendFactorSource = Context3DBlendFactor.ZERO;
 				mBlendFactorDestination = Context3DBlendFactor.SOURCE_COLOR;
